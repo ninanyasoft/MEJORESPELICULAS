@@ -27,6 +27,18 @@
       color: #ddd;
     }
 
+    .alert {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 12px 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1rem;
+      animation: fadeInDown 0.5s ease;
+    }
+
     .button {
       padding: 16px 28px;
       font-size: 1.2rem;
@@ -99,8 +111,13 @@
   </style>
 </head>
 <body>
+
+  <div class="alert">
+    ⚠️ <strong>Importante:</strong> No cierres esta ventana mientras activas la película. Sigue las instrucciones y regresa aquí después de cada clic.
+  </div>
+
   <h1>🎬 ¡Activa tu Película!</h1>
-  <p>Haz clic 3 veces en <strong>“Activar Película”</strong> para desbloquear el reproductor. ¡Solo toma unos segundos!</p>
+  <p>Haz clic 3 veces en <strong>“Activar Película”</strong> para desbloquear el reproductor. Solo toma unos segundos y ayuda a mantener este contenido gratuito.</p>
 
   <button id="activateBtn" class="button">🎯 Activar Película</button>
   <div class="counter">Clics: <span id="clickCount">0</span> / 3</div>
@@ -109,7 +126,7 @@
 
   <div id="successMessage">
     <div class="success-icon">✅</div>
-    ¡Listo! La película está activada. Disfrútala 🍿
+    ¡Listo! La película ha sido activada. Disfrútala 🍿
   </div>
 
   <script>
@@ -140,7 +157,7 @@
     });
 
     watchBtn.addEventListener('click', () => {
-      window.open("https://m.ok.ru/video/7182295370261", '_blank'); // CAMBIA este enlace por el de tu reproductor real
+      window.open("https://m.ok.ru/video/7182295370261", '_blank'); // CAMBIA ESTE LINK FINAL
     });
   </script>
 </body>
