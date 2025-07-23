@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activar Película</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      animation: fadeInDown 1s ease;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      color: #ddd;
+    }
+
+    .button {
+      padding: 16px 28px;
+      font-size: 1.2rem;
+      margin: 15px auto;
+      border: none;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 320px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      display: block;
+    }
+
+    #activateBtn {
+      background: #f39c12;
+      color: #fff;
+    }
+
+    #activateBtn:hover {
+      background: #e67e22;
+      transform: scale(1.05);
+    }
+
+    #watchBtn {
+      background: #2ecc71;
+      color: white;
+    }
+
+    #watchBtn:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+
+    .counter {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: #fff;
+    }
+
+    #successMessage {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2ecc71;
+      animation: fadeInUp 1s ease;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+      color: #2ecc71;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      p { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎬 ¡Activa tu Película!</h1>
+  <p>Haz clic 3 veces en <strong>“Activar Película”</strong> para desbloquear el reproductor. ¡Solo toma unos segundos!</p>
+
+  <button id="activateBtn" class="button">🎯 Activar Película</button>
+  <div class="counter">Clics: <span id="clickCount">0</span> / 3</div>
+
+  <button id="watchBtn" class="button" disabled>▶️ Ver Película Ahora</button>
+
+  <div id="successMessage">
+    <div class="success-icon">✅</div>
+    ¡Listo! La película está activada. Disfrútala 🍿
+  </div>
+
+  <script>
+    const activateBtn = document.getElementById('activateBtn');
+    const watchBtn = document.getElementById('watchBtn');
+    const clickCountEl = document.getElementById('clickCount');
+    const successMessage = document.getElementById('successMessage');
+
+    const redirectUrls = [
+      "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4",
+      "https://www.profitableratecpm.com/a73ufgi0?key=2aac1674131a660cab308352aa0660fe",
+      "https://www.profitableratecpm.com/vzr76297qb?key=3041353f5f3518ca870ec1a17584174f"
+    ];
+
+    let clickCount = 0;
+
+    activateBtn.addEventListener('click', () => {
+      const url = redirectUrls[clickCount % redirectUrls.length];
+      window.open(url, '_blank');
+      clickCount++;
+      clickCountEl.textContent = clickCount;
+
+      if (clickCount >= 3) {
+        watchBtn.disabled = false;
+        successMessage.style.display = 'block';
+        if (navigator.vibrate) navigator.vibrate(150);
+      }
+    });
+
+    watchBtn.addEventListener('click', () => {
+      window.open("https://m.ok.ru/video/7182295370261", '_blank'); // CAMBIA este enlace por el de tu reproductor real
+    });
+  </script>
+</body>
+</html>
